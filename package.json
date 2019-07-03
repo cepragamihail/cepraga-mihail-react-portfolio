@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-router",
+  "name": "cepraga-mihail-react-portfolio",
   "version": "1.0.0",
-  "description": "Basic skeleton codebase for React/Redux/Router applications.",
+  "description": "A basic react app like a portfolio.",
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",

@@ -11,6 +11,8 @@ import About from './pages/about';
 import Contcat from './pages/contact';
 import Blog from './pages/blog';
 import PortfolioDetail from './portfolio/portfolio-detail';
+import NoMatch from './pages/no-match';
+import moment from 'moment';
 
 export default class App extends Component {
   render() {
@@ -20,8 +22,9 @@ export default class App extends Component {
       <Router>
         <div>
         <h1>Cepraga Mihail Portfolio</h1>
-        <h2>React Redux Router</h2>
-
+        <h3>
+          {moment().format('MMMM Do YYYY, h:mm:ss a')}
+        </h3>
         <NavigationContainer />
 
         <Switch>
@@ -29,7 +32,8 @@ export default class App extends Component {
           <Route path="/about-me" component={About} />
           <Route path="/contact" component={Contcat} />
           <Route path="/blog" component={Blog} />
-          <Route path="/portfolio/:slug" component={PortfolioDetail} />
+          <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
+          <Route component={NoMatch} />
         </Switch>
         </div>
       </Router>

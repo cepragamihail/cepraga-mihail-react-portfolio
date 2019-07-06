@@ -4,7 +4,6 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import axios from 'axios';
 
 import NavigationContainer from './navigation/navigation-container';
 import Home from './pages/home';
@@ -17,27 +16,7 @@ import moment from 'moment';
 
 export default class App extends Component {
 
-  constructor() {
-    super();
-    this.getPortfolioItems = this.getPortfolioItems.bind(this);
-  }
-
-  getPortfolioItems() {
-    // Make a request for a user with a given ID
-    axios.get('https://cepragamihail.devcamp.space/portfolio/portfolio_items')
-      .then( response => {
-        console.log("my respons data:=> ", response);
-      })
-      .catch( error => {
-        console.log(error);
-      })
-      .finally( () => {
-        console.log('finally method')
-      });
-  }
-
   render() {
-    this.getPortfolioItems();
     return (
       <div className='app'>
 

@@ -12,7 +12,6 @@ import Contcat from './pages/contact';
 import Blog from './pages/blog';
 import PortfolioDetail from './portfolio/portfolio-detail';
 import NoMatch from './pages/no-match';
-import moment from 'moment';
 
 export default class App extends Component {
 
@@ -22,10 +21,6 @@ export default class App extends Component {
 
         <Router>
           <div>
-            <h1>Cepraga Mihail Portfolio</h1>
-            <h3>
-              {moment().format('MMMM Do YYYY, h:mm:ss a')}
-            </h3>
             <NavigationContainer />
 
             <Switch>

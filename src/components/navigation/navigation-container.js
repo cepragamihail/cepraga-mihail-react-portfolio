@@ -1,33 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default class NavigationComponent extends Component {
-    constructor() {
-        super();
-    }
+const NavigationComponent = props => {
 
-    render() {
+    const dynamicLink = (route, linkText) => {
         return (
-            <div className="nav-wrapper">
-                <div className="left-side">
-                    <div className="nav-link-wrapper">
-                        <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
-                    </div>
-                    <div className="nav-link-wrapper">
-                        <NavLink to="/about-me" activeClassName="nav-link-active">About</NavLink>
-                    </div>
-                    <div className="nav-link-wrapper">
-                        <NavLink to="/contact" activeClassName="nav-link-active">Contact</NavLink>
-                    </div>
-                    <div className="nav-link-wrapper">
-                        <NavLink to="/blog" activeClassName="nav-link-active">Blog</NavLink>
-                    </div>
-                </div>
-                <div className="right-side">
-                    Cepraga Mihail
-                </div>
+            <div className="nav-link-wrapper">
+                <NavLink to="/blog" activeClassName="nav-link-active">Blog</NavLink>
             </div>
         )
     }
 
+    return (
+        <div className="nav-wrapper">
+            <div className="left-side">
+                <div className="nav-link-wrapper">
+                    <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
+                </div>
+                <div className="nav-link-wrapper">
+                    <NavLink to="/about-me" activeClassName="nav-link-active">About</NavLink>
+                </div>
+                <div className="nav-link-wrapper">
+                    <NavLink to="/contact" activeClassName="nav-link-active">Contact</NavLink>
+                </div>
+                { props.loggedInStatus === "LOGGED_IN" ?  (
+                    dynamicLink("/blog", "Blog") 
+                    ): null }
+            </div>
+            <div className="right-side">
+                Cepraga Mihail
+                </div>
+        </div>
+    )
 }
+export default NavigationComponent;
